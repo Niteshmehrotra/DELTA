@@ -1,0 +1,43 @@
+version: 2
+
+sources:
+  - name: ods
+    tables:
+    - name: contact_stream
+    - name: customer_stream
+
+model:
+  - name: mlc_full_load
+    tables:
+        - name: contact_full
+          columns:
+            - name: batchid
+            - name: batch_date
+            - name: id
+            - name: name
+            - name: age
+            - name: warp_pk
+            - name: warp_nk
+            - name: warp_hashdiff
+            - name: warp_start_date
+            - name: warp_end_date
+            - name: warp_delete_flag
+
+
+model:
+  - name: mlc_full_load
+    tables:
+        - name: customer_full
+          columns:
+            - name: batchid
+            - name: batch_date
+            - name: id
+            - name: first_name
+            - name: last_name
+            - name: age
+            - name: warp_pk
+            - name: warp_nk
+            - name: warp_hashdiff
+            - name: warp_start_date
+            - name: warp_end_date
+            - name: warp_delete_flag

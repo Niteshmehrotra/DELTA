@@ -1,0 +1,64 @@
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: 'mlc_gb'
+version: '1.0.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'my-snowflake-db'
+
+# These configurations specify where dbt should look for different types of files.
+# The `source-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+source-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+data-paths: ["data"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"  # directory which will store compiled SQL files
+clean-targets:         # directories to be removed by `dbt clean`
+    - "target"
+    - "dbt_modules"
+
+quoting:
+  database: false
+  schema: false
+  identifier: false
+
+snapshots:
+  
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+
+vars :
+    #Project level vars
+    db_type: snowflake
+    db_primary_key: WARP_PK
+    db_natural_key: WARP_NK
+    db_hash_name: WARP_DIFFHASH
+    db_start_date_name: WARP_START_DATE
+    db_end_date_name: WARP_END_DATE
+    db_delete_flag_name: WARP_DELETE_FLAG
+
+    #Macro level vars
+    full_load_start_date: batch_date
+    full_load_batch_id: batchid
+
+    #Model level vars
+    #SAL_CONTACT
+    #contact_hash_cols: name||age
+    #contact_nk_cols: id
+    #contact_cols: id , name , age
+
+# In this example config, we tell dbt to build all models in the example/ directory
+# as tables. These settings can be overridden in the individual model files
+# using the `{{ config(...) }}` macro.
+models:
+  mlc_gb:
+      mlc_full_load:
+          +schema: DEV_SAL
+          materialized: table

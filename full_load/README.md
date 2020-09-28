@@ -15,6 +15,14 @@ Try running the following commands:
 - Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
 
 ### Setup on Snowflake : 
+
+## Database : 
+	LANDING
+## Schema in Landing Database
+	METADATA
+	ODS
+	DEV_SAL
+
 ## Def for Metadata Table
 create or replace table LANDING.METADATA.TABLE_DEF (
   Table_name varchar(100),

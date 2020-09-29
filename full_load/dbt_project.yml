@@ -62,3 +62,6 @@ models:
       mlc_full_load:
           +schema: DEV_SAL
           materialized: table
+      mlc_delta_load:
+        +schema: DEV_SAL
+        materialized: table

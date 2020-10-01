@@ -47,8 +47,8 @@ create or replace TABLE LANDING.ODS.CUSTOMER_DELTA_CT (
 -------------------------------------------------------------------------------------------------------------
 --------------------------------------DATA SETUP -----------------------------------------------------------------------
  
- ## Intial Full Load 
- 
+ ## Intial Full Load
+
 insert into ods.customer_delta_CT
  select
 	1 as batchid ,

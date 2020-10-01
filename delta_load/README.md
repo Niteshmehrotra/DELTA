@@ -136,3 +136,8 @@ select
     'turner' as LAST_NAME,
 	23 as age,
     'I' as Change_Operation_type  
+
+
+
+#Note 
+Models are hardcoded with queries and will be converted to Macros as per Metadata structure later

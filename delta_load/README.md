@@ -49,6 +49,7 @@ create or replace TABLE LANDING.ODS.CUSTOMER_DELTA_CT (
  
  ## Intial Full Load
 
+---------------------Ist Run--------------------------------
 insert into ods.customer_delta_CT
  select
 	1 as batchid ,
@@ -77,7 +78,7 @@ select
 	23 as age,
     'I' as Change_Operation_type
 	;
----------------------------------------------------------------------------------------
+------------2nd Run ---------------------------------------------------------------------------
 -- updating John age to 35 , will result in new row 
  insert into ods.customer_delta_CT
  select
@@ -89,7 +90,7 @@ select
 	35 as age,
     'U' as Change_Operation_type
   
------------------------------------------------------------------------------------------
+----------------3rd Run-------------------------------------------------------------------------
 -- ADDING JENNY and DELETING JANE , will result in new rows again 
 
  insert into ods.customer_delta_CT
@@ -111,7 +112,7 @@ select
 	23 as age,
     'D' as Change_Operation_type  
 
------------------------------------------------------------------------------------------
+---------------4th Run--------------------------------------------------------------------------
 -- ADDING  JANE again , will result in new rows again 
 
  insert into ods.customer_delta_CT

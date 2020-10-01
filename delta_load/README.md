@@ -139,5 +139,6 @@ select
 
 
 
-#Note 
+### Note 
+
 Models are hardcoded with queries and will be converted to Macros as per Metadata structure later
